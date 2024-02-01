@@ -18,6 +18,12 @@ Also you can change or run nginx (or another service ) on another port as:
 
 docker run -d -p 8080:80 --net mynetwork --name nginx4 nginx 
 
+But remember , you need to change default port from nginx.conf file 
+
+docker exec -it nginx4 /bin/bash
+
+vim /etc/nginx/conf.d/default.conf
+
 After that you need to specify this port on haproxy.cfg file 
 
 http://localhost:8404 

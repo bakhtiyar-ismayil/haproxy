@@ -36,6 +36,7 @@ echo "$haproxy_config" > haproxy.cfg
 # Optionally, display a message indicating the operation is complete
 echo "HAProxy configuration has been written to haproxy.cfg"
 
+docker network create --driver=bridge mynetwork
 
 docker run -d -p 80 --net mynetwork --name nginx1 nginx
 
